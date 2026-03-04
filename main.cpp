@@ -41,3 +41,15 @@ BiList<T>* convert_arr(T arr[], int size) {
         throw;
     }
 }
+
+template<class T>
+void clear_list(BiList<T>* fake) {
+    if (!fake) return;
+    BiList<T>* current = fake->next;
+    while (current != fake) {
+        BiList<T>* temp = current;
+        current = current->next;
+        delete temp;
+    }
+    delete fake;
+}
